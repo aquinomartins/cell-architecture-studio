@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Center, ContactShadows, Float, OrbitControls, RoundedBox, useGLTF } from "@react-three/drei";
-import { Suspense, useMemo, useRef } from "react";
+import { Component, Suspense, useMemo, useRef, type ReactNode } from "react";
 import {
   Color,
   CatmullRomCurve3,
@@ -15,6 +15,36 @@ import {
   type MeshStandardMaterialParameters,
 } from "three";
 import type { CellItem, CellModelAsset, ViewMode } from "../data/cells";
+
+
+class SceneErrorBoundary extends Component<{ children: ReactNode; resetToken: string }, { hasError: boolean }> {
+  constructor(props: { children: ReactNode; resetToken: string }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  override componentDidUpdate(prevProps: { children: ReactNode; resetToken: string }) {
+    if (prevProps.resetToken !== this.props.resetToken && this.state.hasError) {
+      this.setState({ hasError: false });
+    }
+  }
+
+  override render() {
+    if (this.state.hasError) {
+      return (
+        <div className="cell-canvas cell-canvas-fallback" role="alert">
+          Unable to render the 3D scene right now.
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
 
 type CellSceneProps = {
   cell: CellItem;
@@ -927,9 +957,11 @@ export function CellScene({
   resetKey,
 }: CellSceneProps) {
   const nativeMaterial = cell.modelAsset?.materialMode === "native";
+  const resetToken = `${cell.id}-${viewMode}-${crossSection}-${resetKey}`;
 
   return (
-    <Canvas
+    <SceneErrorBoundary resetToken={resetToken}>
+      <Canvas
       key={resetKey}
       className={`cell-canvas${nativeMaterial ? " is-native-asset" : ""}`}
       dpr={[1, 2]}
@@ -997,5 +1029,6 @@ export function CellScene({
         maxDistance={8.4}
       />
     </Canvas>
+    </SceneErrorBoundary>
   );
 }
