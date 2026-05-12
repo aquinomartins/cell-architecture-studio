@@ -1,19 +1,9 @@
 node_modules/
 dist/
-.vite/
 verification/
 docs/PRD.md
 
-.env
-.env.*
-!.env.example
-
 .DS_Store
-Thumbs.db
-*.swp
-*.swo
-*.tmp
-*.temp
 *.local
 
 npm-debug.log*

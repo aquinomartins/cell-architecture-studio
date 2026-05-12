@@ -15,10 +15,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "verify": "node scripts/verify.mjs",
-    "clean": "rm -rf dist .vite",
-    "build:prod": "npm run clean && tsc -b && vite build",
-    "deploy:shared": "bash scripts/deploy-shared.sh"
+    "verify": "node scripts/verify.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
