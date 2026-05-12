@@ -64,8 +64,6 @@ export type CellItem = {
   organelles: OrganelleItem[];
 };
 
-const withBasePath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
-
 export const cells: CellItem[] = [
   {
     id: "plant",
@@ -78,12 +76,12 @@ export const cells: CellItem[] = [
     defaultOrganelle: "nucleus",
     comparison: "animal",
     renderImage: {
-      url: withBasePath("cell-renders-transparent/plant.png"),
+      url: "/cell-renders-transparent/plant.png",
       aspect: "square",
     },
     modelAsset: {
-      url: withBasePath("models/plant-cell-first001.glb"),
-      previewUrl: withBasePath("cell-renders-transparent/plant.png"),
+      url: "/models/plant-cell-first001.glb",
+      previewUrl: "/cell-renders-transparent/plant.png",
       sourceLabel: "User Plant Cell GLB first001",
       sourceUrl: "local:/Users/lank/Downloads/first001.glb",
       scale: 2.36,
@@ -171,12 +169,12 @@ export const cells: CellItem[] = [
     defaultOrganelle: "lysosome",
     comparison: "epithelial",
     renderImage: {
-      url: withBasePath("cell-renders-transparent/white-blood.png"),
+      url: "/cell-renders-transparent/white-blood.png",
       aspect: "square",
     },
     modelAsset: {
-      url: withBasePath("models/white-blood-cell-user.glb"),
-      previewUrl: withBasePath("cell-renders-transparent/white-blood.png"),
+      url: "/models/white-blood-cell-user.glb",
+      previewUrl: "/cell-renders-transparent/white-blood.png",
       sourceLabel: "User White Blood Cell GLB",
       sourceUrl: "local:/Users/lank/Downloads/second.glb",
       scale: 3.18,
@@ -250,12 +248,12 @@ export const cells: CellItem[] = [
     defaultOrganelle: "axon",
     comparison: "muscle",
     renderImage: {
-      url: withBasePath("cell-renders-transparent/neuron.png"),
+      url: "/cell-renders-transparent/neuron.png",
       aspect: "wide",
     },
     modelAsset: {
-      url: withBasePath("models/neuron-nih.glb"),
-      previewUrl: withBasePath("nih-previews/neuron-nih.png"),
+      url: "/models/neuron-nih.glb",
+      previewUrl: "/nih-previews/neuron-nih.png",
       sourceLabel: "NIH 3D Neuron",
       sourceUrl: "https://3d.nih.gov/entries/3DPX-015796/2",
       scale: 3.15,
@@ -329,7 +327,7 @@ export const cells: CellItem[] = [
     defaultOrganelle: "microvilli",
     comparison: "animal",
     renderImage: {
-      url: withBasePath("cell-renders-transparent/epithelial.png"),
+      url: "/cell-renders-transparent/epithelial.png",
       aspect: "square",
     },
     occurrence: {
@@ -398,12 +396,12 @@ export const cells: CellItem[] = [
     defaultOrganelle: "nucleoid",
     comparison: "animal",
     renderImage: {
-      url: withBasePath("cell-renders-transparent/bacteria.png"),
+      url: "/cell-renders-transparent/bacteria.png",
       aspect: "landscape",
     },
     modelAsset: {
-      url: withBasePath("models/bacteria-wall-nih.glb"),
-      previewUrl: withBasePath("nih-previews/bacteria-wall-nih.png"),
+      url: "/models/bacteria-wall-nih.glb",
+      previewUrl: "/nih-previews/bacteria-wall-nih.png",
       sourceLabel: "NIH 3D Gram Positive Cell Wall",
       sourceUrl: "https://3d.nih.gov/entries/3DPX-010752/2",
       scale: 0.00185,
@@ -477,12 +475,12 @@ export const cells: CellItem[] = [
     defaultOrganelle: "mitochondrion",
     comparison: "plant",
     renderImage: {
-      url: withBasePath("cell-renders-transparent/animal.png"),
+      url: "/cell-renders-transparent/animal.png",
       aspect: "square",
     },
     modelAsset: {
-      url: withBasePath("models/animal-cell-nih.glb"),
-      previewUrl: withBasePath("nih-previews/animal-cell-nih.png"),
+      url: "/models/animal-cell-nih.glb",
+      previewUrl: "/nih-previews/animal-cell-nih.png",
       sourceLabel: "NIH 3D Animal Cell",
       sourceUrl: "https://3d.nih.gov/entries/3DPX-015797/2",
       scale: 0.044,
@@ -556,7 +554,7 @@ export const cells: CellItem[] = [
     defaultOrganelle: "myofibril",
     comparison: "neuron",
     renderImage: {
-      url: withBasePath("cell-renders-transparent/muscle.png"),
+      url: "/cell-renders-transparent/muscle.png",
       aspect: "wide",
     },
     occurrence: {
